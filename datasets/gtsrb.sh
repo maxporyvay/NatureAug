@@ -12,3 +12,8 @@ TEST_ZIP=gtsrb_test.zip
 wget https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/GTSRB_Final_Test_Images.zip -O $TEST_ZIP
 unzip $TEST_ZIP
 rm -f $TEST_ZIP
+
+TEST_GT_ZIP=gtsrb_test_gt.zip
+wget https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/GTSRB_Final_Test_GT.zip -O $TEST_GT_ZIP
+unzip $TEST_GT_ZIP
+rm -f $TEST_GT_ZIP
