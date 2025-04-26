@@ -2,6 +2,12 @@
     "dataset": {
         "name": "belgium_tsc"
     },
-    "classifier": {},
-    "augmentations": {}
+    "classifier": {
+        "name": "alexnet"
+    },
+    "augmentations": [
+        {
+            "name": "fog"
+        }
+    ]
 }
