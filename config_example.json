@@ -1,0 +1,7 @@
+{
+    "dataset": {
+        "name": "belgium_tsc"
+    },
+    "classifier": {},
+    "augmentations": {}
+}

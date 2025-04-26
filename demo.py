@@ -1,12 +1,13 @@
-from natureaug.dataset import BelgiumTSCDataset, GTSRBDataset
+import json
+
+from natureaug.data import load_dataset
 
 
 if __name__ == '__main__':
-    belgium_tsc_train_dataset = BelgiumTSCDataset(train=True)
-    belgium_tsc_test_dataset = BelgiumTSCDataset(train=False)
-    gtsrb_train_dataset = GTSRBDataset(train=True)
-    gtsrb_test_dataset = GTSRBDataset(train=False)
-    print(len(belgium_tsc_train_dataset))
-    print(len(belgium_tsc_test_dataset))
-    print(len(gtsrb_train_dataset))
-    print(len(gtsrb_test_dataset))
+    with open('config_example.json') as config_file:
+        config = json.load(config_file)
+    dataset_class = load_dataset(config)
+    train_dataset = dataset_class(train=True)
+    test_dataset = dataset_class(train=False)
+    print(len(train_dataset))
+    print(len(test_dataset))
