@@ -35,7 +35,7 @@ AUGMENTATIONS = {
     'shadow_from_albumentations': ShadowFromAlbumentations,
     'snow_from_albumentations': SnowFromAlbumentations,
     'snowflakes_from_imgaug': SnowflakesFromImgaug,
-    'sunflare_from_albumentations': SunFlareFromAlbumentations,
+    'sun_flare_from_albumentations': SunFlareFromAlbumentations,
 }
 
 
@@ -47,4 +47,6 @@ def load_augmentation_pipeline(config):
         if 'params' in aug:
             aug_params = aug['params']
         aug_classes_list.append(AUGMENTATIONS[aug['name']](**aug_params))
+    if len(aug_classes_list) == 0:
+        return None
     return Compose(aug_classes_list)

@@ -7,12 +7,9 @@
     },
     "augmentations": [
         {
-            "name": "fog_from_imgaug"
-        },
-        {
-            "name": "defocus_blur_from_imgaug",
+            "name": "fog_from_albumentations",
             "params": {
-                "severity": 3
+                "p": 0.3
             }
         }
     ]

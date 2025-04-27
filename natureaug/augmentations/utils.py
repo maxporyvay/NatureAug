@@ -1,5 +1,7 @@
 import numpy as np
 
+from random import random
+
 
 class AlbumentationAugmentation:
     def __init__(self, aug_class, **kwargs):
@@ -10,11 +12,14 @@ class AlbumentationAugmentation:
 
 
 class ImgaugAugmentation:
-    def __init__(self, aug_class, **kwargs):
+    def __init__(self, aug_class, p=0.5, **kwargs):
         self.aug = aug_class(**kwargs)
+        self.p = p
 
     def __call__(self, sample):
-        return self.aug(image=np.array(sample))
+        if random() < self.p:
+            return self.aug(image=np.array(sample))
+        return sample
 
 
 # modification of https://github.com/FLHerne/mapgen/blob/master/diamondsquare.py

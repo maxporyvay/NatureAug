@@ -25,13 +25,21 @@ if __name__ == '__main__':
         mean=[0.4914, 0.4822, 0.4465],
         std=[0.2023, 0.1994, 0.2010],
     )
-    train_transform = Compose([
-        ToPILImage(),
-        Resize((227,227)),
-        augmentation_pipeline,
-        ToTensor(),
-        normalize,
-    ])
+    if augmentation_pipeline is not None:
+        train_transform = Compose([
+            ToPILImage(),
+            Resize((227,227)),
+            augmentation_pipeline,
+            ToTensor(),
+            normalize,
+        ])
+    else:
+        train_transform = Compose([
+            ToPILImage(),
+            Resize((227,227)),
+            ToTensor(),
+            normalize,
+        ])
     test_transform = Compose([
         ToPILImage(),
         Resize((227,227)),
@@ -73,6 +81,7 @@ if __name__ == '__main__':
         current_device = torch.cuda.current_device()
         print('CUDA current device index:', current_device)
         print('CUDA current device name:', torch.cuda.get_device_name(current_device))
+    model.to(device)
 
     for epoch in tqdm.tqdm(range(num_epochs)):
         for i, (images, labels) in tqdm.tqdm(enumerate(train_loader)):

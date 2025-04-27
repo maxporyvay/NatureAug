@@ -1,0 +1,16 @@
+{
+    "dataset": {
+        "name": "belgium_tsc"
+    },
+    "classifier": {
+        "name": "alexnet"
+    },
+    "augmentations": [
+        {
+            "name": "frost_from_imgaug",
+            "params": {
+                "p": 0.3
+            }
+        }
+    ]
+}

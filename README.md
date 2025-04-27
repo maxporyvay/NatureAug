@@ -47,4 +47,4 @@ TBD
 ```
 python3 demo.py --config-path <path_to_your_config>
 ```
-Config example can be found in `config_example.json` file.
+Config examples can be found in `config_examples` directory.
