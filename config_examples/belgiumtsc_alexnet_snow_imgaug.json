@@ -1,13 +1,13 @@
 {
     "dataset": {
-        "name": "belgium_tsc"
+        "name": "gtsrb"
     },
     "classifier": {
         "name": "alexnet"
     },
     "augmentations": [
         {
-            "name": "snow_from_imgaug",
+            "name": "snowflakes_from_imgaug",
             "params": {
                 "p": 0.3
             }

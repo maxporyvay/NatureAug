@@ -39,7 +39,7 @@ class GTSRBDataset(Dataset):
         for file_name in file_names:
             assert file_name in gt_img_to_label_dct
             file_paths.append(os.path.join(data_directory, file_name))
-            labels.append(gt_img_to_label_dct[file_name])
+            labels.append(int(gt_img_to_label_dct[file_name]))
         return file_paths, labels
 
     def __len__(self):

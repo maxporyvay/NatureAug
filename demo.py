@@ -1,5 +1,6 @@
 import json
 import sys
+import time
 import tqdm
 
 import torch
@@ -14,6 +15,8 @@ from natureaug.data import load_dataset
 
 
 if __name__ == '__main__':
+    start_time = time.time()
+
     assert len(sys.argv) == 3
     assert sys.argv[1] == '--config-path'
     config_path = sys.argv[2]
@@ -58,7 +61,7 @@ if __name__ == '__main__':
     classifier_class = load_classifier(config)
 
     num_classes = 62
-    num_epochs = 1
+    num_epochs = 10
     learning_rate = 0.005
 
     model = classifier_class(num_classes)
@@ -113,3 +116,5 @@ if __name__ == '__main__':
             correct += (predicted == labels).sum().item()
             del images, labels, outputs
         print('Accuracy of the network on the test images: {}%'.format(100 * correct / total))
+    
+    print(f"Experiment time: {time.time() - start_time}")
