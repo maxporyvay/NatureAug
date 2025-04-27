@@ -1,13 +1,13 @@
 {
     "dataset": {
-        "name": "belgium_tsc"
+        "name": "gtsrb"
     },
     "classifier": {
         "name": "alexnet"
     },
     "augmentations": [
         {
-            "name": "fog_from_albumentations",
+            "name": "rain_from_imgaug",
             "params": {
                 "p": 0.5
             }

@@ -9,7 +9,7 @@
         {
             "name": "defocus_blur_from_albumentations",
             "params": {
-                "p": 0.3
+                "p": 0.5
             }
         }
     ]

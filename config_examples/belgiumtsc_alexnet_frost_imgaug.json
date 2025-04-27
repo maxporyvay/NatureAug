@@ -9,7 +9,7 @@
         {
             "name": "frost_from_imgaug",
             "params": {
-                "p": 0.3
+                "p": 0.5
             }
         }
     ]

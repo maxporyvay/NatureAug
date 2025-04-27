@@ -9,7 +9,7 @@
         {
             "name": "shadow_from_albumentations",
             "params": {
-                "p": 0.3
+                "p": 0.5
             }
         }
     ]

@@ -1,0 +1,9 @@
+{
+    "dataset": {
+        "name": "gtsrb"
+    },
+    "classifier": {
+        "name": "alexnet"
+    },
+    "augmentations": []
+}
