@@ -5,10 +5,17 @@ NatureAug is library providing access to making experiments with images classifi
 ## Augmentations
 
 Weather artifacts based augmentations being supported now:
-- fog
+- Clouds (from [Imgaug](https://imgaug.readthedocs.io/en/latest/source/api_augmenters_weather.html#imgaug.augmenters.weather.Clouds))
+- Fog (from [Albumentations](https://albumentations.ai/docs/api-reference/augmentations/transforms/#RandomFog)/[Imgaug](https://imgaug.readthedocs.io/en/latest/source/api_augmenters_weather.html#imgaug.augmenters.weather.Fog))
+- Frost (from [Imgaug](https://imgaug.readthedocs.io/en/latest/source/api_augmenters_imgcorruptlike.html#imgaug.augmenters.imgcorruptlike.Frost))
+- Rain (from [Albumentations](https://albumentations.ai/docs/api-reference/augmentations/transforms/#RandomRain)/[Imgaug](https://imgaug.readthedocs.io/en/latest/source/api_augmenters_weather.html#imgaug.augmenters.weather.Rain))
+- Shadow (from [Albumentations](https://albumentations.ai/docs/api-reference/augmentations/transforms/#RandomShadow))
+- Snow (from [Albumentations](https://albumentations.ai/docs/api-reference/augmentations/transforms/#RandomSnow)/[Imgaug](https://imgaug.readthedocs.io/en/latest/source/api_augmenters_weather.html#imgaug.augmenters.weather.Snowflakes))
+- Sun flare (from [Albumentations](https://albumentations.ai/docs/api-reference/augmentations/transforms/#RandomSunFlare))
 
 Camera artifacts based augmentations being supported now:
-- blur
+- Defocus blur (from [Albumentations](https://albumentations.ai/docs/api-reference/augmentations/blur/transforms/#Defocus)/[Imgaug](https://imgaug.readthedocs.io/en/latest/source/api_augmenters_imgcorruptlike.html#imgaug.augmenters.imgcorruptlike.DefocusBlur))
+- Motion blur (from [Albumentations](https://albumentations.ai/docs/api-reference/augmentations/blur/transforms/#MotionBlur)/[Imgaug](https://imgaug.readthedocs.io/en/latest/source/api_augmenters_imgcorruptlike.html#imgaug.augmenters.imgcorruptlike.MotionBlur))
 
 ## Datasets
 
@@ -27,10 +34,17 @@ cd datasets
 ```
 to download GTSRB data.
 
+## Classifiers
+
+TBD
+
 ## Experiment configuration
 
 TBD
 
 ## Running demo script
 
-TBD
+```
+python3 demo.py --config-path <path_to_your_config>
+```
+Config example can be found in `config_example.json` file.

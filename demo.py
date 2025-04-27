@@ -1,4 +1,5 @@
 import json
+import sys
 import tqdm
 
 import torch
@@ -13,7 +14,10 @@ from natureaug.data import load_dataset
 
 
 if __name__ == '__main__':
-    with open('config_example.json') as config_file:
+    assert len(sys.argv) == 3
+    assert sys.argv[1] == '--config-path'
+    config_path = sys.argv[2]
+    with open(config_path) as config_file:
         config = json.load(config_file)
 
     augmentation_pipeline = load_augmentation_pipeline(config)
@@ -57,11 +61,24 @@ if __name__ == '__main__':
 
     total_step = len(train_loader)
 
+    # Device configuration
+    cuda_available = torch.cuda.is_available()
+    if cuda_available:
+        device = torch.device('cuda')
+    else:
+        device = torch.device('cpu')
+    print('CUDA is available:', cuda_available)
+    if cuda_available:
+        print('CUDA device count:', torch.cuda.device_count())
+        current_device = torch.cuda.current_device()
+        print('CUDA current device index:', current_device)
+        print('CUDA current device name:', torch.cuda.get_device_name(current_device))
+
     for epoch in tqdm.tqdm(range(num_epochs)):
         for i, (images, labels) in tqdm.tqdm(enumerate(train_loader)):
             # Move tensors to the configured device
-            # images = images.to(device)
-            # labels = labels.to(device)
+            images = images.to(device)
+            labels = labels.to(device)
 
             # Forward pass
             outputs = model(images)
@@ -73,14 +90,14 @@ if __name__ == '__main__':
             optimizer.step()
 
         print ('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}'
-                    .format(epoch+1, num_epochs, i+1, total_step, loss.item()))
+               .format(epoch+1, num_epochs, i+1, total_step, loss.item()))
 
     with torch.no_grad():
         correct = 0
         total = 0
         for images, labels in tqdm.tqdm(test_loader):
-            # images = images.to(device)
-            # labels = labels.to(device)
+            images = images.to(device)
+            labels = labels.to(device)
             outputs = model(images)
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)

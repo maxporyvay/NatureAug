@@ -1,6 +1,22 @@
 import numpy as np
 
 
+class AlbumentationAugmentation:
+    def __init__(self, aug_class, **kwargs):
+        self.aug = aug_class(**kwargs)
+
+    def __call__(self, sample):
+        return self.aug(image=np.array(sample))['image']
+
+
+class ImgaugAugmentation:
+    def __init__(self, aug_class, **kwargs):
+        self.aug = aug_class(**kwargs)
+
+    def __call__(self, sample):
+        return self.aug(image=np.array(sample))
+
+
 # modification of https://github.com/FLHerne/mapgen/blob/master/diamondsquare.py
 def plasma_fractal(mapsize=256, wibbledecay=3):
     """
