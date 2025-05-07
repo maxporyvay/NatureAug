@@ -1,0 +1,66 @@
+{
+    "subexps": [
+        {
+            "name": "exp1",
+            "dataset": {
+                "name": "belgium_tsc"
+            },
+            "classifier": {
+                "name": "alexnet"
+            },
+            "training": {
+                "num_epochs": 1,
+                "optimizer": {
+                    "name": "adam",
+                    "params": {
+                        "learning_rate": 0.005,
+                        "weight_decay": 0.005,
+                        "momentum": 0.9
+                    }
+                },
+                "loss_function": {
+                    "name": "cross_entropy_loss"
+                }
+            },
+            "augmentations": [
+                {
+                    "name": "motion_blur_from_albumentations",
+                    "params": {
+                        "p": 0.5
+                    }
+                }
+            ]
+        },
+        {
+            "name": "exp2",
+            "dataset": {
+                "name": "belgium_tsc"
+            },
+            "classifier": {
+                "name": "alexnet"
+            },
+            "training": {
+                "num_epochs": 1,
+                "optimizer": {
+                    "name": "adam",
+                    "params": {
+                        "learning_rate": 0.005,
+                        "weight_decay": 0.005,
+                        "momentum": 0.9
+                    }
+                },
+                "loss_function": {
+                    "name": "cross_entropy_loss"
+                }
+            },
+            "augmentations": [
+                {
+                    "name": "motion_blur_from_imgaug",
+                    "params": {
+                        "p": 0.5
+                    }
+                }
+            ]
+        }
+    ]
+}
