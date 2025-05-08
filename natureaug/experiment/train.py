@@ -19,15 +19,15 @@ setting_optimizer_params = lambda optimizer, params: partial(optimizer, **params
 
 def load_optimizer(config):
     optimizer_params = {}
-    if 'params' in config:
-        optimizer_params = config['params']
+    if 'params' in config['optimizer']:
+        optimizer_params = config['optimizer']['params']
     return setting_optimizer_params(OPTIMIZERS[config['optimizer']['name']], optimizer_params)
 
 
 def load_loss_function(config):
     loss_function_params = {}
-    if 'params' in config:
-        loss_function_params = config['params']
+    if 'params' in config['loss_function']:
+        loss_function_params = config['loss_function']['params']
     return LOSS_FUNCTIONS[config['loss_function']['name']](**loss_function_params)
 
 

@@ -1,3 +1,5 @@
+import time
+
 import torch
 
 from natureaug.classifiers import load_classifier
@@ -28,6 +30,8 @@ def full_experiment_pipeline(config):
 
 
 def subexperiment_pipeline(subexp_config):
+    start_time = time.time()
+
     train_loader, test_loader, dataset_num_classes = get_train_test_loaders(subexp_config)
 
     model = load_classifier(subexp_config)(num_classes=dataset_num_classes)
@@ -39,4 +43,6 @@ def subexperiment_pipeline(subexp_config):
     train(model=model, train_dataloader=train_loader, device=device, config=subexp_config)
 
     model.eval()
-    test(model=model, test_dataloader=test_loader, device=device)
+    test(model=model, test_dataloader=test_loader, device=device, num_classes=dataset_num_classes)
+
+    print(f"Subexperiment time: {time.time() - start_time}")

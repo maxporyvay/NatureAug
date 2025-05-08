@@ -49,8 +49,9 @@ Two optimizers from `torch.optim` are being supported now:
 One loss function from `torch.nn` is being supported now:
 - [Cross-entropy loss](https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html)
 
-One metric is being supported now:
-- Accuracy
+Two metrics from `torcheval.metrics` are being supported now:
+- [Accuracy](https://docs.pytorch.org/torcheval/stable/generated/torcheval.metrics.functional.multiclass_accuracy.html#torcheval.metrics.functional.multiclass_accuracy): `micro` and `macro`
+- [F1-score](https://docs.pytorch.org/torcheval/stable/generated/torcheval.metrics.functional.multiclass_f1_score.html#torcheval.metrics.functional.multiclass_f1_score): `macro`
 
 ## Experiment configuration
 
