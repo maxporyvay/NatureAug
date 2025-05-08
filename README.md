@@ -1,6 +1,6 @@
 # NatureAug: Natural image augmentation methods library
 
-NatureAug is library providing access to making experiments with images classifiers using different natural augmentation techniques. Natural augmentation methods are divided into weather artifacts and camera artifacts augmentation methods.
+NatureAug is library providing access to making experiments with image classifiers using different natural augmentation techniques easily. Natural augmentation methods are divided into weather artifacts and camera artifacts augmentation methods.
 
 ## Augmentations
 
@@ -34,9 +34,23 @@ cd datasets
 ```
 to download GTSRB data.
 
-## Classifiers
+## Training process
 
-TBD
+Four classifiers from `torchvision.models` are being supported now:
+- [alexnet](https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.alexnet.html#torchvision.models.alexnet)
+- [resnet16](https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.resnet18.html#torchvision.models.resnet18)
+- [vgg11](https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.vgg11.html#torchvision.models.vgg11)
+- [inception_v3](https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.inception_v3.html#torchvision.models.inception_v3)
+
+Two optimizers from `torch.optim` are being supported now:
+- [SGD](https://docs.pytorch.org/docs/stable/generated/torch.optim.SGD.html#torch.optim.SGD)
+- [Adam](https://docs.pytorch.org/docs/stable/generated/torch.optim.Adam.html#torch.optim.Adam)
+
+One loss function from `torch.nn` is being supported now:
+- [Cross-entropy loss](https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html)
+
+One metric is being supported now:
+- Accuracy
 
 ## Experiment configuration
 
@@ -48,3 +62,29 @@ TBD
 python3 demo.py --config-path <path_to_your_config>
 ```
 Config examples can be found in `config_examples` directory.
+
+## Extending library with your own classes
+
+### New augmentations
+
+TBD
+
+### New datasets
+
+TBD
+
+### New classifiers
+
+TBD
+
+### New optimizers
+
+TBD
+
+### New loss functions
+
+TBD
+
+### New metrics
+
+TBD
