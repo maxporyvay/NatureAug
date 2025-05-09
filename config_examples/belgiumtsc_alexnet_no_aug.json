@@ -1,9 +1,0 @@
-{
-    "dataset": {
-        "name": "belgium_tsc"
-    },
-    "classifier": {
-        "name": "alexnet"
-    },
-    "augmentations": []
-}
