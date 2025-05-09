@@ -3,13 +3,13 @@
         {
             "name": "exp1",
             "dataset": {
-                "name": "belgium_tsc"
+                "name": "gtsrb"
             },
             "classifier": {
                 "name": "alexnet"
             },
             "training": {
-                "num_epochs": 10,
+                "num_epochs": 5,
                 "optimizer": {
                     "name": "sgd",
                     "params": {
@@ -22,31 +22,18 @@
                     "name": "cross_entropy_loss"
                 }
             },
-            "augmentations": [
-                {
-                    "name": "fog_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
-                },
-                {
-                    "name": "defocus_blur_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
-                }
-            ]
+            "augmentations": []
         },
         {
             "name": "exp2",
             "dataset": {
-                "name": "belgium_tsc"
+                "name": "gtsrb"
             },
             "classifier": {
                 "name": "alexnet"
             },
             "training": {
-                "num_epochs": 10,
+                "num_epochs": 5,
                 "optimizer": {
                     "name": "sgd",
                     "params": {
@@ -61,13 +48,7 @@
             },
             "augmentations": [
                 {
-                    "name": "fog_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
-                },
-                {
-                    "name": "motion_blur_from_albumentations",
+                    "name": "clouds_from_imgaug",
                     "params": {
                         "p": 0.5
                     }
@@ -77,13 +58,13 @@
         {
             "name": "exp3",
             "dataset": {
-                "name": "belgium_tsc"
+                "name": "gtsrb"
             },
             "classifier": {
                 "name": "alexnet"
             },
             "training": {
-                "num_epochs": 10,
+                "num_epochs": 5,
                 "optimizer": {
                     "name": "sgd",
                     "params": {
@@ -97,12 +78,6 @@
                 }
             },
             "augmentations": [
-                {
-                    "name": "rain_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
-                },
                 {
                     "name": "defocus_blur_from_albumentations",
                     "params": {
@@ -114,13 +89,199 @@
         {
             "name": "exp4",
             "dataset": {
-                "name": "belgium_tsc"
+                "name": "gtsrb"
             },
             "classifier": {
                 "name": "alexnet"
             },
             "training": {
-                "num_epochs": 10,
+                "num_epochs": 5,
+                "optimizer": {
+                    "name": "sgd",
+                    "params": {
+                        "lr": 0.005,
+                        "weight_decay": 0.005,
+                        "momentum": 0.9
+                    }
+                },
+                "loss_function": {
+                    "name": "cross_entropy_loss"
+                }
+            },
+            "augmentations": [
+                {
+                    "name": "defocus_blur_from_imgaug",
+                    "params": {
+                        "p": 0.5
+                    }
+                }
+            ]
+        },
+        {
+            "name": "exp5",
+            "dataset": {
+                "name": "gtsrb"
+            },
+            "classifier": {
+                "name": "alexnet"
+            },
+            "training": {
+                "num_epochs": 5,
+                "optimizer": {
+                    "name": "sgd",
+                    "params": {
+                        "lr": 0.005,
+                        "weight_decay": 0.005,
+                        "momentum": 0.9
+                    }
+                },
+                "loss_function": {
+                    "name": "cross_entropy_loss"
+                }
+            },
+            "augmentations": [
+                {
+                    "name": "fog_from_albumentations",
+                    "params": {
+                        "p": 0.5
+                    }
+                }
+            ]
+        },
+        {
+            "name": "exp6",
+            "dataset": {
+                "name": "gtsrb"
+            },
+            "classifier": {
+                "name": "alexnet"
+            },
+            "training": {
+                "num_epochs": 5,
+                "optimizer": {
+                    "name": "sgd",
+                    "params": {
+                        "lr": 0.005,
+                        "weight_decay": 0.005,
+                        "momentum": 0.9
+                    }
+                },
+                "loss_function": {
+                    "name": "cross_entropy_loss"
+                }
+            },
+            "augmentations": [
+                {
+                    "name": "fog_from_imgaug",
+                    "params": {
+                        "p": 0.5
+                    }
+                }
+            ]
+        },
+        {
+            "name": "exp7",
+            "dataset": {
+                "name": "gtsrb"
+            },
+            "classifier": {
+                "name": "alexnet"
+            },
+            "training": {
+                "num_epochs": 5,
+                "optimizer": {
+                    "name": "sgd",
+                    "params": {
+                        "lr": 0.005,
+                        "weight_decay": 0.005,
+                        "momentum": 0.9
+                    }
+                },
+                "loss_function": {
+                    "name": "cross_entropy_loss"
+                }
+            },
+            "augmentations": [
+                {
+                    "name": "frost_from_imgaug",
+                    "params": {
+                        "p": 0.5
+                    }
+                }
+            ]
+        },
+        {
+            "name": "exp8",
+            "dataset": {
+                "name": "gtsrb"
+            },
+            "classifier": {
+                "name": "alexnet"
+            },
+            "training": {
+                "num_epochs": 5,
+                "optimizer": {
+                    "name": "sgd",
+                    "params": {
+                        "lr": 0.005,
+                        "weight_decay": 0.005,
+                        "momentum": 0.9
+                    }
+                },
+                "loss_function": {
+                    "name": "cross_entropy_loss"
+                }
+            },
+            "augmentations": [
+                {
+                    "name": "motion_blur_from_albumentations",
+                    "params": {
+                        "p": 0.5
+                    }
+                }
+            ]
+        },
+        {
+            "name": "exp9",
+            "dataset": {
+                "name": "gtsrb"
+            },
+            "classifier": {
+                "name": "alexnet"
+            },
+            "training": {
+                "num_epochs": 5,
+                "optimizer": {
+                    "name": "sgd",
+                    "params": {
+                        "lr": 0.005,
+                        "weight_decay": 0.005,
+                        "momentum": 0.9
+                    }
+                },
+                "loss_function": {
+                    "name": "cross_entropy_loss"
+                }
+            },
+            "augmentations": [
+                {
+                    "name": "motion_blur_from_imgaug",
+                    "params": {
+                        "p": 0.5
+                    }
+                }
+            ]
+        },
+        {
+            "name": "exp10",
+            "dataset": {
+                "name": "gtsrb"
+            },
+            "classifier": {
+                "name": "alexnet"
+            },
+            "training": {
+                "num_epochs": 5,
                 "optimizer": {
                     "name": "sgd",
                     "params": {
@@ -139,9 +300,34 @@
                     "params": {
                         "p": 0.5
                     }
+                }
+            ]
+        },
+        {
+            "name": "exp11",
+            "dataset": {
+                "name": "gtsrb"
+            },
+            "classifier": {
+                "name": "alexnet"
+            },
+            "training": {
+                "num_epochs": 5,
+                "optimizer": {
+                    "name": "sgd",
+                    "params": {
+                        "lr": 0.005,
+                        "weight_decay": 0.005,
+                        "momentum": 0.9
+                    }
                 },
+                "loss_function": {
+                    "name": "cross_entropy_loss"
+                }
+            },
+            "augmentations": [
                 {
-                    "name": "motion_blur_from_albumentations",
+                    "name": "rain_from_imgaug",
                     "params": {
                         "p": 0.5
                     }
@@ -149,15 +335,15 @@
             ]
         },
         {
-            "name": "exp5",
+            "name": "exp12",
             "dataset": {
-                "name": "belgium_tsc"
+                "name": "gtsrb"
             },
             "classifier": {
                 "name": "alexnet"
             },
             "training": {
-                "num_epochs": 10,
+                "num_epochs": 5,
                 "optimizer": {
                     "name": "sgd",
                     "params": {
@@ -176,62 +362,19 @@
                     "params": {
                         "p": 0.5
                     }
-                },
-                {
-                    "name": "defocus_blur_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
                 }
             ]
         },
         {
-            "name": "exp6",
+            "name": "exp13",
             "dataset": {
-                "name": "belgium_tsc"
+                "name": "gtsrb"
             },
             "classifier": {
                 "name": "alexnet"
             },
             "training": {
-                "num_epochs": 10,
-                "optimizer": {
-                    "name": "sgd",
-                    "params": {
-                        "lr": 0.005,
-                        "weight_decay": 0.005,
-                        "momentum": 0.9
-                    }
-                },
-                "loss_function": {
-                    "name": "cross_entropy_loss"
-                }
-            },
-            "augmentations": [
-                {
-                    "name": "shadow_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
-                },
-                {
-                    "name": "motion_blur_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
-                }
-            ]
-        },
-        {
-            "name": "exp7",
-            "dataset": {
-                "name": "belgium_tsc"
-            },
-            "classifier": {
-                "name": "alexnet"
-            },
-            "training": {
-                "num_epochs": 10,
+                "num_epochs": 5,
                 "optimizer": {
                     "name": "sgd",
                     "params": {
@@ -250,25 +393,19 @@
                     "params": {
                         "p": 0.5
                     }
-                },
-                {
-                    "name": "defocus_blur_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
                 }
             ]
         },
         {
-            "name": "exp8",
+            "name": "exp14",
             "dataset": {
-                "name": "belgium_tsc"
+                "name": "gtsrb"
             },
             "classifier": {
                 "name": "alexnet"
             },
             "training": {
-                "num_epochs": 10,
+                "num_epochs": 5,
                 "optimizer": {
                     "name": "sgd",
                     "params": {
@@ -283,13 +420,7 @@
             },
             "augmentations": [
                 {
-                    "name": "snow_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
-                },
-                {
-                    "name": "motion_blur_from_albumentations",
+                    "name": "snowflakes_from_imgaug",
                     "params": {
                         "p": 0.5
                     }
@@ -297,52 +428,15 @@
             ]
         },
         {
-            "name": "exp9",
+            "name": "exp15",
             "dataset": {
-                "name": "belgium_tsc"
+                "name": "gtsrb"
             },
             "classifier": {
                 "name": "alexnet"
             },
             "training": {
-                "num_epochs": 10,
-                "optimizer": {
-                    "name": "sgd",
-                    "params": {
-                        "lr": 0.005,
-                        "weight_decay": 0.005,
-                        "momentum": 0.9
-                    }
-                },
-                "loss_function": {
-                    "name": "cross_entropy_loss"
-                }
-            },
-            "augmentations": [
-                {
-                    "name": "sun_flare_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
-                },
-                {
-                    "name": "defocus_blur_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
-                }
-            ]
-        },
-        {
-            "name": "exp10",
-            "dataset": {
-                "name": "belgium_tsc"
-            },
-            "classifier": {
-                "name": "alexnet"
-            },
-            "training": {
-                "num_epochs": 10,
+                "num_epochs": 5,
                 "optimizer": {
                     "name": "sgd",
                     "params": {
@@ -358,12 +452,6 @@
             "augmentations": [
                 {
                     "name": "sun_flare_from_albumentations",
-                    "params": {
-                        "p": 0.5
-                    }
-                },
-                {
-                    "name": "motion_blur_from_albumentations",
                     "params": {
                         "p": 0.5
                     }

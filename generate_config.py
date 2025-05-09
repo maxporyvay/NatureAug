@@ -1,10 +1,11 @@
+import itertools
 import json
 import sys
 
 CLASSIFIER = "alexnet"
-DATASET = "gtsrb"
+DATASET = "belgium_tsc"
 LOSS_FN = "cross_entropy_loss"
-NUM_EPOCHS = 5
+NUM_EPOCHS = 10
 OPTIMIZER = "sgd"
 LEARNING_RATE = 0.005
 WEIGHT_DECAY = 0.005
@@ -16,31 +17,34 @@ if __name__ == "__main__":
     assert sys.argv[1] == '--config-path'
     config_path = sys.argv[2]
 
-    augmentations_lists = [[]] + [
+    augmentations_lists = [
         [
             {
-                "name": aug_name,
+                "name": weather_aug_name,
+                "params": {
+                    "p": 0.5
+                }
+            },
+            {
+                "name": camera_aug_name,
                 "params": {
                     "p": 0.5
                 }
             }
         ]
-        for aug_name in [
-            "clouds_from_imgaug",
-            "defocus_blur_from_albumentations",
-            "defocus_blur_from_imgaug",
-            "fog_from_albumentations",
-            "fog_from_imgaug",
-            "frost_from_imgaug",
-            "motion_blur_from_albumentations",
-            "motion_blur_from_imgaug",
-            "rain_from_albumentations",
-            "rain_from_imgaug",
-            "shadow_from_albumentations",
-            "snow_from_albumentations",
-            "snowflakes_from_imgaug",
-            "sun_flare_from_albumentations",
-        ]
+        for weather_aug_name, camera_aug_name in itertools.product(
+            [
+                "fog_from_albumentations",
+                "rain_from_albumentations",
+                "shadow_from_albumentations",
+                "snow_from_albumentations",
+                "sun_flare_from_albumentations",
+            ],
+            [
+                "defocus_blur_from_albumentations",
+                "motion_blur_from_albumentations",
+            ]
+        )
     ]
 
     config = {
