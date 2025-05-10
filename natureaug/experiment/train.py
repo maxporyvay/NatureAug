@@ -40,7 +40,7 @@ def train(model, train_dataloader, device, config):
     num_epochs = training_config['num_epochs']
 
     for epoch in tqdm.tqdm(range(num_epochs)):
-        for i, (images, labels) in tqdm.tqdm(enumerate(train_dataloader)):
+        for i, (images, labels) in enumerate(train_dataloader):
             # Move tensors to the configured device
             images = images.to(device)
             labels = labels.to(device)
