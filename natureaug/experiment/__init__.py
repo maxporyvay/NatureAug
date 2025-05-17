@@ -4,8 +4,11 @@ import torch
 
 from natureaug.classifiers import load_classifier
 from .preprocess import get_train_test_loaders
+from .report import report_exp_results
 from .test import test
 from .train import train
+
+REPORT_FILE_NAME = 'report.csv'
 
 
 def get_device():
@@ -24,9 +27,20 @@ def get_device():
 
 
 def full_experiment_pipeline(config):
+    exp_names_list = []
+    metrics_list = []
+    times_list = []
+
     for subexp_config in config['subexps']:
-        print(f'Running subexperiment "{subexp_config["name"]}"')
-        subexperiment_pipeline(subexp_config)
+        exp_name = subexp_config["name"]
+        print(f'Running subexperiment "{exp_name}"')
+        metrics, time_elapsed = subexperiment_pipeline(subexp_config)
+        exp_names_list.append(exp_name)
+        metrics_list.append(metrics)
+        times_list.append(time_elapsed)
+
+    report_exp_results(REPORT_FILE_NAME, exp_names_list, metrics_list, times_list)
+    print()
 
 
 def subexperiment_pipeline(subexp_config):
@@ -43,6 +57,9 @@ def subexperiment_pipeline(subexp_config):
     train(model=model, train_dataloader=train_loader, device=device, config=subexp_config)
 
     model.eval()
-    test(model=model, test_dataloader=test_loader, device=device, num_classes=dataset_num_classes)
+    metrics = test(model=model, test_dataloader=test_loader, device=device, num_classes=dataset_num_classes)
 
-    print(f"Subexperiment time: {time.time() - start_time}")
+    time_elapsed = time.time() - start_time
+    print(f"Subexperiment time: {time_elapsed}")
+
+    return metrics, time_elapsed
